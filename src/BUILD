@@ -5,7 +5,6 @@ cc_binary(
     srcs = ["main.c"],
     deps = [
         "//src/engine/render:window",
-        "//src/engine:global",
-        "//third_party/glfw:glfw3",
+        "//src/engine/input:keyboard",
     ],
 )
