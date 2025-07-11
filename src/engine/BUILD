@@ -10,11 +10,3 @@ cc_library(
     hdrs = ["types.h"],
 )
 
-cc_library(
-    name = "global",
-    hdrs = ["global.h"],
-    srcs = ["global.c"],
-    deps = [
-        "//src/engine/render:window",
-    ],
-)
