@@ -8,7 +8,6 @@
 
 static void framebuffer_resize_callback(GLFWwindow *window, int width,
                                         int height);
-
 Window_State *window_create(int height, int width, const char *title) {
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -16,24 +15,24 @@ Window_State *window_create(int height, int width, const char *title) {
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-  GLFWwindow *window = glfwCreateWindow(800, 800, "Engine", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(800, 800, title, NULL, NULL);
   if (window == NULL) {
     glfwTerminate();
-    ERROR_EXIT("error: glfw failed to create window");
+    ERROR_EXIT("glfw failed to create window");
   }
   glfwMakeContextCurrent(window);
 
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
     glfwTerminate();
-    ERROR_EXIT("error: failed to load glad");
+    ERROR_EXIT("failed to load glad");
   }
 
   glViewport(0, 0, 800, 800);
   glfwSetFramebufferSizeCallback(window, framebuffer_resize_callback);
 
-  printf("info (window): GL Vendor: %s\n", glGetString(GL_VENDOR));
-  printf("info (window): GL Renderer: %s\n", glGetString(GL_RENDERER));
-  printf("info (window): GL Version: %s\n", glGetString(GL_VERSION));
+  LOG_INFO("GL Vendor: %s", glGetString(GL_VENDOR));
+  LOG_INFO("info (window): GL Renderer: %s", glGetString(GL_RENDERER));
+  LOG_INFO("info (window): GL Version: %s", glGetString(GL_VERSION));
 
   Window_State *window_state = malloc(sizeof(*window_state));
 
@@ -46,12 +45,28 @@ Window_State *window_create(int height, int width, const char *title) {
   return window_state;
 }
 
+void window_set_close(Window_State *window_state) {
+    glfwSetWindowShouldClose(window_state->window, GLFW_TRUE);
+    return;
+}
+
+bool window_should_close(Window_State *window_state) {
+    return glfwWindowShouldClose(window_state->window);
+};
+
+void window_poll_swap(Window_State *window_state) {
+    glfwSwapBuffers(window_state->window); 
+    glfwPollEvents();
+};
+
 void window_destroy(Window_State *window_state) { 
-    free(window_state);
+    glfwDestroyWindow(window_state->window);
     glfwTerminate(); 
+    free(window_state);
 }
 
 static void framebuffer_resize_callback(GLFWwindow *window, int width,
                                         int height) {
   glViewport(0, 0, width, height);
 }
+
