@@ -11,3 +11,23 @@ cc_library(
         "//src/engine:types"
     ],
 )
+
+cc_library(
+    name = "shader",
+    srcs = ["shader.c"],
+    hdrs = ["shader.h"],
+    deps = [
+        "//src/engine:util",
+        "//src/engine:types",
+        "//third_party/glad:glad",
+    ],
+)
+
+cc_library(
+    name = "mesh",
+    srcs = ["mesh.c"],
+    hdrs = ["mesh.h"],
+    deps = [
+        "//third_party/cglm:cglm",
+    ],
+)
