@@ -11,3 +11,14 @@ cc_library(
         "//third_party/glfw:glfw3",
     ]
 )
+
+cc_library(
+    name = "mouse",
+    hdrs = ["mouse.h"],
+    srcs = ["mouse.c"],
+    deps = [
+        "//src/engine:types",
+        "//src/engine/render:window",
+        "//third_party/glfw:glfw3"
+    ]
+)
