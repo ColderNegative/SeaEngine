@@ -28,6 +28,10 @@ cc_library(
     srcs = ["mesh.c"],
     hdrs = ["mesh.h"],
     deps = [
+        "//src/engine:array",
+        "//src/engine:types",
+        "//src/engine/render:shader",
+        "//third_party/glad:glad",
         "//third_party/cglm:cglm",
     ],
 )
