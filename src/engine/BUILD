@@ -12,6 +12,12 @@ cc_library(
 
 cc_library(
     name = "array",
+    srcs = ["array.c"],
     hdrs = ["array.h"],
+    deps = [
+        "//src/engine:types",
+        "//src/engine:util",
+    ],
 )
+
 
