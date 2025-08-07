@@ -10,3 +10,8 @@ cc_library(
     hdrs = ["types.h"],
 )
 
+cc_library(
+    name = "array",
+    hdrs = ["array.h"],
+)
+
