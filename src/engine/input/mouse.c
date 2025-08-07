@@ -4,7 +4,7 @@
 #include "src/engine/input/mouse.h"
 #include "src/engine/types.h"
 
-Mouse* mouse_create(Window_State *window) {
+Mouse* mouse_create(const Window_State *window) {
     Mouse *mouse = malloc(sizeof(*mouse));
 
     f64 xpos, ypos;
@@ -18,11 +18,11 @@ Mouse* mouse_create(Window_State *window) {
     return mouse;
 }
 
-void mouse_set_input_mode(SEAMOUSE_TYPE mouse_type, Window_State *window) {
+void mouse_set_input_mode(SEAMOUSE_TYPE mouse_type, const Window_State *window) {
     glfwSetInputMode(window->window, GLFW_CURSOR, mouse_type + GLFW_MOUSE_OFFSET);
 }
 
-void mouse_poll_position(Mouse *mouse, Window_State *window) {
+void mouse_poll_position(Mouse *mouse, const Window_State *window) {
     glfwGetCursorPos(window->window, &mouse->xpos, &mouse->ypos);
 }
 

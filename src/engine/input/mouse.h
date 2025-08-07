@@ -16,7 +16,7 @@ typedef struct {
     f64 ypos;
 } Mouse;
 
-Mouse* mouse_create(Window_State *window);
-void mouse_set_input_mode(SEAMOUSE_TYPE mouse_type, Window_State *window);
-void mouse_poll_position(Mouse *mouse, Window_State *window);
+Mouse* mouse_create(const Window_State *window);
+void mouse_set_input_mode(SEAMOUSE_TYPE mouse_type, const Window_State *window);
+void mouse_poll_position(Mouse *mouse, const Window_State *window);
 void mouse_destroy(Mouse *mouse);

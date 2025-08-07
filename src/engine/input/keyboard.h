@@ -65,5 +65,5 @@ typedef struct {
 Keyboard_Input *keyboard_create();
 void keyboard_register_key(Keyboard_Input *keyboard_input, SEAKEY key, Key_Callback key_callback, void *context);
 void keyboard_deregister_key(Keyboard_Input *keyboard_input, SEAKEY key);
-void keyboard_poll_keys(Keyboard_Input *keyboard_input, Window_State *window_state);
+void keyboard_poll_keys(Keyboard_Input *keyboard_input, const Window_State *window_state);
 void keyboard_destroy(Keyboard_Input* keyboard_input);

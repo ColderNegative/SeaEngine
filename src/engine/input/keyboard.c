@@ -39,7 +39,7 @@ void keyboard_deregister_key(Keyboard_Input *keyboard_input, SEAKEY key) {
     return;
 }
 
-void keyboard_poll_keys(Keyboard_Input *keyboard_input, Window_State *window_state) {
+void keyboard_poll_keys(Keyboard_Input *keyboard_input, const Window_State *window_state) {
     for (int i = 0; i < SEAKEY_COUNT; i++) {
         int glfw_key = 0;
         if (i < 10) {

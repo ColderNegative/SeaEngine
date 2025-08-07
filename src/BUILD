@@ -6,5 +6,6 @@ cc_binary(
     deps = [
         "//src/engine/render:window",
         "//src/engine/input:keyboard",
+        "//src/engine/input:mouse",
     ],
 )

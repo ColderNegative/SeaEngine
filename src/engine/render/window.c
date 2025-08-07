@@ -8,7 +8,7 @@
 
 static void framebuffer_resize_callback(GLFWwindow *window, int width,
                                         int height);
-Window_State *window_create(int height, int width, const char *title) {
+Window_State *window_create(u32 height, u32 width, const char *title) {
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
