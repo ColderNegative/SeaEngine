@@ -2,7 +2,7 @@
 #include <string.h>
 
 #include "keyboard.h"
-#include "glfw3.h"
+#include "third_party/glfw/glfw3.h"
 #include "../util.h"
 #include "../render/window.h"
 

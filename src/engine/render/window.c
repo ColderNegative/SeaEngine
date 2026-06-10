@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 #include "../util.h"
-#include "glad/glad.h"
-#include "glfw3.h"
+#include "third_party/glad/glad.h"
+#include "third_party/glfw/glfw3.h"
 #include "window.h"
 
 static void framebuffer_resize_callback(GLFWwindow *window, int width,

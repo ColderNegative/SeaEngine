@@ -3,5 +3,5 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "cglm",
     hdrs = glob(["**/*.h"]),
-    include_prefix = "cglm",
+    include_prefix = "third_party/cglm",
 )

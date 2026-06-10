@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "glfw3.h"
+#include "third_party/glfw/glfw3.h"
 #include "src/engine/input/mouse.h"
 #include "src/engine/types.h"
 

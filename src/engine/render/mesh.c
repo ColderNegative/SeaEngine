@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "glad/glad.h"
+#include "third_party/glad/glad.h"
 #include "src/engine/types.h"
 #include "mesh.h"
 

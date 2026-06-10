@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 #include "src/engine/types.h"
-#include "glfw3.h"
+#include "third_party/glfw/glfw3.h"
 
 typedef struct {
   GLFWwindow *window;

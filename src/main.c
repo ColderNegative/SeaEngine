@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "glad/glad.h"
+#include "third_party/glad/glad.h"
 #include "src/engine/render/mesh.h"
 #include "src/engine/render/shader.h"
 #include "src/engine/array.h"
@@ -8,7 +8,7 @@
 #include "src/engine/input/keyboard.h"
 #include "src/engine/input/mouse.h"
 #include "src/engine/util.h"
-#include "cglm/cglm.h"
+#include "third_party/cglm/cglm.h"
 
 const char *vertex_shader_source = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
@@ -38,7 +38,10 @@ int main() {
     Keyboard_Input *keyboard_input = keyboard_create();
     Mouse *mouse = mouse_create(window_state);
 
-    Shader *shader = shader_create(vertex_shader_source, fragment_shader_source);
+    const char *simple_vert_source = shader_load_file("assets/shaders/simple_vert.glsl");
+    const char *simple_frag_source = shader_load_file("assets/shaders/simple_frag.glsl");
+
+    Shader *shader = shader_create(simple_vert_source, simple_frag_source);
 
     Array *vertices = array_create(3, sizeof(vec3));
     array_push(vertices, (vec3){-0.5, -0.5, 0.0});
