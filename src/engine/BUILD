@@ -3,6 +3,9 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "util",
     hdrs = ["util.h"],
+    deps = [
+        "//src/engine:types",
+    ],
 )
 
 cc_library(

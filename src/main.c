@@ -38,8 +38,8 @@ int main() {
     Keyboard_Input *keyboard_input = keyboard_create();
     Mouse *mouse = mouse_create(window_state);
 
-    const char *simple_vert_source = shader_load_file("assets/shaders/simple_vert.glsl");
-    const char *simple_frag_source = shader_load_file("assets/shaders/simple_frag.glsl");
+    const char *simple_vert_source = read_file("assets/shaders/simple_vert.glsl");
+    const char *simple_frag_source = read_file("assets/shaders/simple_frag.glsl");
 
     Shader *shader = shader_create(simple_vert_source, simple_frag_source);
 

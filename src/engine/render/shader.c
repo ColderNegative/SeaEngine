@@ -57,34 +57,6 @@ Shader *shader_create(const char *vertex_source, const char *fragment_source) {
     return shader;
 }
 
-const char *shader_load_file(const char *file_path) {
-    FILE *file = fopen(file_path, "r");
-    char info_log[512];
-
-    if (!file) {
-        strerror_r(errno, info_log, 512);
-        fclose(file);
-        ERROR_RETURN(NULL, "shader failed to load file %s: %s", file_path, info_log);
-    }
-
-    fseek(file, 0, SEEK_END);
-    i64 file_size = ftell(file);
-    rewind(file);
-
-    char *buffer = malloc(file_size);
-
-    if (!fread(buffer, 1, file_size, file)) {
-        fclose(file);
-        ERROR_RETURN(NULL, "shader file failed to read into buffer: %s", file_path);
-    }
-
-    LOG_INFO("shader file read successfully:\n%s", buffer);
-
-    fclose(file);
-    
-    return buffer;
-}
-
 void shader_destroy(Shader *shader) {
     glDeleteProgram(shader->program_id);
     free(shader);
